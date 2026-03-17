@@ -7,7 +7,6 @@ Date::Date(int m, int d, int y)
 	Date::month = m;
 	Date::day = d;
 	Date::year = y;
-	std::cout << "INFORM";
 }
 
 void Date::set_date(int m, int d, int y)
