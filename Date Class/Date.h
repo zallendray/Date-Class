@@ -1,21 +1,27 @@
-#pragma once
+#ifndef DATE_H
+#define DATE_H
 
 
 class Date
 {
 private:
-	int month = 1, day = 1, year = 1900;
+	int month, day, year;
 
 public:
-	Date(int m, int d, int y);
+	Date(int m = 1, int d = 1, int y = 1900);
 	void set_date(int m, int d, int y);
 	
 	int get_month() const;
 	int get_day() const;
 	int get_year() const;
+
+	bool is_leap_year() const;
+	bool is_leap_year(int year) const;
+
+	int last_day() const;
+	int last_day(int month, int year) const;
+
+	void print_date();
 };
 
-Date::Date(int m = 1, int d = 1, int y = 1900)
-{
-
-}
+#endif
