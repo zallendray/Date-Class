@@ -1,5 +1,6 @@
 #ifndef DATE_H
 #define DATE_H
+#include <iostream>
 
 
 class Date
@@ -22,6 +23,17 @@ public:
 	int last_day(int month, int year) const;
 
 	void print_date();
+
+	Date operator++();
+	Date operator++(int);
+
+	Date operator--();
+	Date operator--(int);
+
+	Date operator-(const Date& rhs);
+
+	friend std::ostream& operator<<(std::ostream& out, const Date& obj);
+	friend std::istream& operator>>(std::istream& in, Date& obj);
 };
 
-#endif
+#endif 

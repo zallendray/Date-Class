@@ -131,3 +131,41 @@ void Date::print_date()
 
 	std::cout << Date::get_day() << " " << month_string << " " << Date::get_year() << std::endl;
 }
+
+
+Date Date::operator++()
+{
+
+}
+
+Date Date::operator++(int)
+{
+
+}
+
+
+Date Date::operator--()
+{
+
+}
+
+Date Date::operator--(int)
+{
+
+}
+
+
+Date Date::operator-(const Date& rhs)
+{
+
+}
+
+std::ostream& operator<<(std::ostream& out, const Date& obj)
+{
+
+}
+
+std::istream& operator>>(std::istream& in, Date& obj)
+{
+
+}
