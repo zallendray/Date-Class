@@ -9,16 +9,9 @@ int main()
 {
     Date d, d2;
     
-    int month, day, year;
+    int month, day, year, number_of_days;
 
-    cout << "Please enter the year: ";
-    cin >> year;
-    cout << endl << "Please enter the month: ";
-    cin >> month;
-    cout << endl << "Please enter the day: ";
-    cin >> day;
-    cout << endl << endl;
-    d.set_date(month, day, year);
+    cin >> d;
 
     cout << endl << "Entered date:" << endl;
     d.print_date();
@@ -48,4 +41,22 @@ int main()
     d.print_date();
     cout << endl << endl << "Date 2:" << endl;
     d2.print_date();
+
+
+
+    cout << endl << endl << "You will be asked to enter two different dates, and the program will figure out how many days are between the two dates." << endl << endl;
+
+    cout << "Date 1:" << endl;
+    cin >> d;
+
+    cout << "Date 2:" << endl;
+    cin >> d2;
+
+
+    cout << endl << endl << "CALCULATING... ";
+
+    number_of_days = d - d2;
+
+    cout << "There are " << number_of_days << " days between " << d << " and " << d2 << "." << endl << endl;
+    
 }

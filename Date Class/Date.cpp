@@ -228,19 +228,84 @@ Date Date::operator--(int)
 		return temp;
 }
 
-/*
-Date Date::operator-(const Date& rhs)
-{
 
+int Date::operator-(const Date& rhs)
+{
+	Date temp(month, day, year);
+	int number_of_days = 0;
+
+	if ((year < rhs.year) or (year == rhs.year and month < rhs.month) or (year == rhs.year and month == rhs.month and day < rhs.day)) {
+		while (((temp.year == rhs.year) == false) or ((temp.month == rhs.month) == false) or ((temp.day == rhs.day) == false))
+		{
+			temp = ++temp;
+			number_of_days += 1;
+		}
+	}
+	else {
+		while (((temp.year == rhs.year) == false) or ((temp.month == rhs.month) == false) or ((temp.day == rhs.day) == false))
+		{
+			temp = --temp;
+			number_of_days += 1;
+		}
+	}
+	return number_of_days;
 }
 
 std::ostream& operator<<(std::ostream& out, const Date& obj)
 {
+	std::string month_string;
 
+	switch (obj.month) {
+	case 1:
+		month_string = "January";
+		break;
+	case 2:
+		month_string = "February";
+		break;
+	case 3:
+		month_string = "March";
+		break;
+	case 4:
+		month_string = "April";
+		break;
+	case 5:
+		month_string = "May";
+		break;
+	case 6:
+		month_string = "June";
+		break;
+	case 7:
+		month_string = "July";
+		break;
+	case 8:
+		month_string = "August";
+		break;
+	case 9:
+		month_string = "September";
+		break;
+	case 10:
+		month_string = "October";
+		break;
+	case 11:
+		month_string = "November";
+		break;
+	case 12:
+		month_string = "December";
+		break;
+	}
+
+		out << month_string << " " << obj.day << " " << obj.year;
+		return out;
 }
 
 std::istream& operator>>(std::istream& in, Date& obj)
 {
-
+	std::cout << "Please enter the year: ";
+	in >> obj.year;
+	std::cout << std::endl << "Please enter the month: ";
+	in >> obj.month;
+	std::cout << std::endl << "Please enter the day: ";
+	in >> obj.day;
+	std::cout << std::endl << std::endl;
+	return in;
 }
-*/

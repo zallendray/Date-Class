@@ -30,7 +30,7 @@ public:
 	Date operator--();
 	Date operator--(int);
 
-	Date operator-(const Date& rhs);
+	int operator-(const Date& rhs);
 
 	friend std::ostream& operator<<(std::ostream& out, const Date& obj);
 	friend std::istream& operator>>(std::istream& in, Date& obj);
