@@ -135,26 +135,100 @@ void Date::print_date()
 
 Date Date::operator++()
 {
+	int last;
 
+	last = last_day(month, year);
+		if (day < last) {
+			day += 1;
+		}
+		else if (month < 12) {
+			month += 1;
+			day = 1;
+		}
+		else {
+			year += 1;
+			month = 1;
+			day = 1;
+		}
+	return *this;
 }
 
 Date Date::operator++(int)
 {
+	Date temp(month,day,year);
+	int last;
 
+	last = last_day(month, year);
+		if (day < last) {
+			day += 1;
+		}
+		else if (month < 12) {
+			month += 1;
+			day = 1;
+		}
+		else {
+			year += 1;
+			month = 1;
+			day = 1;
+		}
+	return temp;
 }
 
 
 Date Date::operator--()
 {
+	int last, previous_month;
 
+	if (month > 1) {
+		previous_month = month - 1;
+	}
+	else {
+		previous_month = 12;
+	}
+	last = last_day(previous_month, year);
+		if (day > 1) {
+			day -= 1;
+		}
+		else if (month >  1) {
+			month -= 1;
+			day = last;
+		}
+		else {
+			year -= 1;
+			month = 12;
+			day = last;
+		}
+	return *this;
 }
 
 Date Date::operator--(int)
 {
+	Date temp(month, day, year);
+	int last, previous_month;
 
+		if (month > 1) {
+			previous_month = month - 1;
+		}
+		else {
+			previous_month = 12;
+		}
+		last = last_day(previous_month, year);
+			if (day > 1) {
+				day -= 1;
+			}
+			else if (month >  1) {
+				month -= 1;
+				day = last;
+			}
+			else {
+				year -= 1;
+				month = 12;
+				day = last;
+			}
+		return temp;
 }
 
-
+/*
 Date Date::operator-(const Date& rhs)
 {
 
@@ -169,3 +243,4 @@ std::istream& operator>>(std::istream& in, Date& obj)
 {
 
 }
+*/
